@@ -27,10 +27,10 @@ headers = {'Content-type' : 'application/json', 'User-Agent' : 'Mozilla/4.0 (com
 flag = True
 
 while flag:
-	issueNum = input("Issue PP-")
+	issueNum = input("Issue Key: ")
 	if issueNum == 'exit':
 		break
-	req = urllib.request.Request("https://quality.hubwoo.com/rest/api/latest/issue/PP-" + issueNum, headers = headers)
+	req = urllib.request.Request("https://quality.hubwoo.com/rest/api/latest/issue/" + issueNum, headers = headers)
 	res = urllib.request.urlopen(req)
 	jsr = json.loads(res.read().decode('utf_8'))
-	pp.pprint(jsr['fields']['summary']['value'])
+	pp.pprint(jsr)
