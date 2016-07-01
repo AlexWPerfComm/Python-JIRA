@@ -23,9 +23,14 @@ SESS_ID = jsr['session']['value']
 SESS_NA = jsr['session']['name']
 
 headers = {'Content-type' : 'application/json', 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 'cookie' : SESS_NA + '=' + SESS_ID }
-req = urllib.request.Request("https://quality.hubwoo.com/rest/api/latest/issue/PP-29", headers = headers)
-res = urllib.request.urlopen(req)
 
-jsr = json.loads(res.read().decode('utf_8'))
+flag = True
 
-pp.pprint(jsr)
+while flag:
+	issueNum = input("Issue PP-")
+	if issueNum == 'exit':
+		break
+	req = urllib.request.Request("https://quality.hubwoo.com/rest/api/latest/issue/PP-" + issueNum, headers = headers)
+	res = urllib.request.urlopen(req)
+	jsr = json.loads(res.read().decode('utf_8'))
+	pp.pprint(jsr['fields']['summary']['value'])
