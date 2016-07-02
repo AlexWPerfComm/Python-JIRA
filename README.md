@@ -13,6 +13,6 @@ Plan:
 - Summary of tickets
 - Alerts to new tickets
 - Type issue numbers, get CSV for PlanItPoker
-- - Better yet, allow network connection for client, make estimations inside; average posted to JIRA ticket automatically.
+  - Better yet, allow network connection for client, make estimations inside; average posted to JIRA ticket automatically.
 - Comment on tickets
 - etc.
